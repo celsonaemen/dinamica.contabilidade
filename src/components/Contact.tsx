@@ -1,14 +1,13 @@
-"use client";
-
-import { FormEvent, useState } from "react";
-import { Clock3, Mail, MapPin, MessageCircle, Send } from "lucide-react";
+import { Clock3, Mail, MapPin } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SmartLeadForm } from "@/components/SmartLeadForm";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { buildWhatsappLink, siteConfig } from "@/data/site-content";
 
 const contactItems = [
   {
-    icon: MessageCircle,
+    icon: WhatsAppIcon,
     label: "WhatsApp",
     value: siteConfig.contact.whatsappDisplay,
     href: buildWhatsappLink(),
@@ -23,6 +22,7 @@ const contactItems = [
     icon: MapPin,
     label: "Endereço",
     value: siteConfig.contact.address,
+    href: siteConfig.contact.mapUrl,
   },
   {
     icon: Clock3,
@@ -32,23 +32,6 @@ const contactItems = [
 ];
 
 export function Contact() {
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [message, setMessage] = useState("");
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const text = [
-      `Olá, sou ${name || "um visitante do site"}.`,
-      company ? `Empresa: ${company}.` : "",
-      message ? `Mensagem: ${message}` : "Gostaria de falar com a Dinâmica Contabilidade.",
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    window.open(buildWhatsappLink(text), "_blank", "noopener,noreferrer");
-  }
-
   return (
     <section id="contato" className="bg-white py-20 sm:py-24">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
@@ -75,7 +58,12 @@ export function Contact() {
               );
 
               return item.href ? (
-                <a key={item.label} href={item.href} target={item.label === "WhatsApp" ? "_blank" : undefined} rel="noreferrer">
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.label === "WhatsApp" || item.label === "Endereço" ? "_blank" : undefined}
+                  rel="noreferrer"
+                >
                   {content}
                 </a>
               ) : (
@@ -86,47 +74,7 @@ export function Contact() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.12}>
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-[2rem] border border-slate-200 bg-cloud p-5 shadow-soft sm:p-7"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="grid gap-2 text-sm font-semibold text-slate-700">
-                Nome
-                <input
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                  className="focus-ring rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-ink outline-none"
-                  placeholder="Seu nome"
-                />
-              </label>
-              <label className="grid gap-2 text-sm font-semibold text-slate-700">
-                Empresa
-                <input
-                  value={company}
-                  onChange={(event) => setCompany(event.target.value)}
-                  className="focus-ring rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-ink outline-none"
-                  placeholder="Nome da empresa"
-                />
-              </label>
-            </div>
-            <label className="mt-4 grid gap-2 text-sm font-semibold text-slate-700">
-              Mensagem
-              <textarea
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                className="focus-ring min-h-36 resize-y rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-ink outline-none"
-                placeholder="Conte em poucas palavras o que você precisa"
-              />
-            </label>
-            <button
-              type="submit"
-              className="focus-ring mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-bluebrand px-6 py-4 text-sm font-semibold text-white transition hover:bg-navy sm:w-auto"
-            >
-              <Send className="h-5 w-5" />
-              Enviar pelo WhatsApp
-            </button>
-          </form>
+          <SmartLeadForm />
         </AnimatedSection>
       </div>
     </section>

@@ -5,13 +5,16 @@ export const siteConfig = {
   description:
     "Soluções contábeis, fiscais, trabalhistas e empresariais com atendimento próximo, organização e tecnologia.",
   contact: {
-    whatsappNumber: "5533999999999",
-    whatsappDisplay: "(33) 99999-9999",
+    whatsappNumber: "553388131330",
+    whatsappDisplay: "+55 (33) 8813-1330",
     whatsappMessage:
       "Olá, vim pelo site da Dinâmica Contabilidade e gostaria de falar com um especialista.",
     email: "contato@seudominio.com.br",
-    address: "Endereço a configurar",
+    address: "Rua Luiz Cerqueira, 68, 2º Andar, Centro, Manhuaçu - MG, 36900-085",
+    mapUrl:
+      "https://www.google.com/maps/search/dinamica+contabilidade+manhua%C3%A7u/@-20.255388,-42.0345722,21z?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D",
     businessHours: "Segunda a sexta, em horário comercial",
+    clientPortalUrl: "",
   },
   social: {
     instagram: "",
@@ -21,12 +24,13 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Para sua empresa", href: "#publicos" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Abrir empresa", href: "/abrir-empresa" },
+  { label: "Trocar contador", href: "/trocar-de-contador" },
+  { label: "BPO financeiro", href: "/bpo-financeiro" },
+  { label: "Notícias", href: "/noticias" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 export const heroContent = {
@@ -191,6 +195,27 @@ export const processSteps = [
   {
     title: "Relatórios e orientações",
     description: "Entregamos informações claras para apoiar gestão, planejamento e decisões.",
+  },
+];
+
+export const newsPosts = [
+  {
+    category: "Fiscal",
+    title: "Como manter obrigações fiscais mais organizadas no mês",
+    description:
+      "Orientações simples para evitar atrasos, concentrar documentos e acompanhar guias com mais previsibilidade.",
+  },
+  {
+    category: "Trabalhista",
+    title: "Pontos de atenção na rotina de departamento pessoal",
+    description:
+      "Admissões, folha, férias e encargos exigem controle de prazos e informações bem conferidas.",
+  },
+  {
+    category: "Empresarial",
+    title: "Quando revisar o enquadramento tributário da empresa",
+    description:
+      "Mudanças de faturamento, atividade ou estrutura podem indicar a necessidade de reavaliar o regime tributário.",
   },
 ];
 

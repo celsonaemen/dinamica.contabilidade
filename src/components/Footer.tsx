@@ -32,7 +32,7 @@ export function Footer() {
             <h2 className="text-sm font-semibold uppercase text-champagne">Serviços</h2>
             <div className="mt-4 grid gap-3">
               {services.slice(0, 5).map((service) => (
-                <a key={service.title} href="#servicos" className="text-sm text-white/64 transition hover:text-white">
+                <a key={service.title} href="/#servicos" className="text-sm text-white/64 transition hover:text-white">
                   {service.title}
                 </a>
               ))}
@@ -48,7 +48,14 @@ export function Footer() {
               <a href={`mailto:${siteConfig.contact.email}`} className="transition hover:text-white">
                 {siteConfig.contact.email}
               </a>
-              <span>{siteConfig.contact.address}</span>
+              <a
+                href={siteConfig.contact.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-white"
+              >
+                {siteConfig.contact.address}
+              </a>
             </div>
           </div>
         </div>

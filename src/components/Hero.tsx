@@ -4,11 +4,11 @@ import {
   Cpu,
   FileCheck2,
   Handshake,
-  MessageCircle,
   MoveRight,
   ShieldCheck,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { buildWhatsappLink, heroContent, heroHighlights } from "@/data/site-content";
 
 const iconMap = {
@@ -48,7 +48,7 @@ export function Hero() {
               rel="noreferrer"
               className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-semibold text-navy shadow-glass transition hover:bg-champagne"
             >
-              <MessageCircle className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5" />
               {heroContent.primaryCta}
             </a>
             <a

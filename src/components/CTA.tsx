@@ -1,5 +1,6 @@
-import { MessageCircle, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { buildWhatsappLink, ctaContent } from "@/data/site-content";
 
 export function CTA() {
@@ -21,7 +22,7 @@ export function CTA() {
               rel="noreferrer"
               className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-semibold text-navy transition hover:bg-champagne"
             >
-              <MessageCircle className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5" />
               {ctaContent.button}
               <MoveRight className="h-5 w-5" />
             </a>
